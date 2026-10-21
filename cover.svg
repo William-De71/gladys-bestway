@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="534" viewBox="0 0 800 534">
+  <!-- Illustration only: no brand logo (Bestway and Lay-Z-Spa are trademarks of their owner, not affiliated). -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d2230"/>
+      <stop offset="1" stop-color="#163d4f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#3fd0e0" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#3fd0e0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5d6b78"/>
+      <stop offset="1" stop-color="#3a4550"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a98a6"/>
+      <stop offset="1" stop-color="#606d7a"/>
+    </linearGradient>
+    <radialGradient id="water" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#7fe6f2"/>
+      <stop offset="1" stop-color="#1b9fc0"/>
+    </radialGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2b3a"/>
+      <stop offset="1" stop-color="#0d1822"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="534" fill="url(#bg)"/>
+  <circle cx="290" cy="250" r="260" fill="url(#glow)"/>
+
+  <!-- Steam above the water -->
+  <g fill="none" stroke="#d8f6fb" stroke-width="7" stroke-linecap="round" opacity="0.55" transform="translate(0 -22)">
+    <path d="M210 120 C190 95 235 80 215 50"/>
+    <path d="M290 110 C270 82 318 66 296 32"/>
+    <path d="M370 120 C350 95 395 80 375 50"/>
+  </g>
+
+  <!-- The inflatable spa: wall, rim, water, bubbles -->
+  <g transform="translate(290 225)">
+    <path d="M-210 0 L-210 95 A210 62 0 0 0 210 95 L210 0 Z" fill="url(#wall)"/>
+    <g stroke="#2e3842" stroke-width="3" opacity="0.6">
+      <line x1="-140" y1="44" x2="-140" y2="140"/>
+      <line x1="-70" y1="56" x2="-70" y2="154"/>
+      <line x1="0" y1="62" x2="0" y2="158"/>
+      <line x1="70" y1="56" x2="70" y2="154"/>
+      <line x1="140" y1="44" x2="140" y2="140"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="210" ry="62" fill="url(#rim)"/>
+    <ellipse cx="0" cy="2" rx="176" ry="46" fill="url(#water)"/>
+    <g fill="#ffffff" opacity="0.85">
+      <circle cx="-110" cy="4" r="7"/>
+      <circle cx="-80" cy="-14" r="5"/>
+      <circle cx="-40" cy="10" r="9"/>
+      <circle cx="-5" cy="-20" r="5"/>
+      <circle cx="30" cy="6" r="7"/>
+      <circle cx="70" cy="-10" r="6"/>
+      <circle cx="105" cy="12" r="8"/>
+      <circle cx="130" cy="-6" r="4"/>
+    </g>
+  </g>
+
+  <!-- A Gladys-like panel: water, target, heating -->
+  <g transform="translate(540 105)">
+    <rect x="0" y="0" width="210" height="170" rx="18" fill="url(#screen)" stroke="#2d4558" stroke-width="3"/>
+    <text x="24" y="50" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" fill="#9fb3c8">Eau · Water</text>
+    <text x="24" y="100" font-family="DejaVu Sans, Arial, sans-serif" font-size="44" font-weight="bold" fill="#7fe6f2">36 °C</text>
+    <text x="24" y="142" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" fill="#ffb347">→ 38 °C</text>
+    <circle cx="182" cy="44" r="10" fill="#ff8a3d"/>
+  </g>
+
+  <text x="400" y="452" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="46" font-weight="bold" fill="#ffffff">Bestway Lay-Z-Spa</text>
+  <text x="400" y="492" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" fill="#a9bccd">inflatable spas in Gladys Assistant</text>
+</svg>

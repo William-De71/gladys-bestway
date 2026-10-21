@@ -1,0 +1,700 @@
+[
+  {
+    "external_id": "ext:test-integration:spa:v1-device0",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:spa:v1-device0:temperature",
+        "category": "temperature-sensor",
+        "type": "decimal",
+        "unit": "celsius",
+        "min": 0,
+        "max": 60,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device0:target",
+        "category": "water-heater",
+        "type": "target-temperature",
+        "unit": "celsius",
+        "min": 20,
+        "max": 40,
+        "step": 0.5,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device0:heater",
+        "category": "water-heater",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device0:heating",
+        "category": "water-heater",
+        "type": "heating",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device0:power",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device0:filter",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device0:bubbles",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device0:lock",
+        "category": "child-lock",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device0:errors",
+        "category": "text",
+        "type": "text",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:spa:v1-device1",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:spa:v1-device1:temperature",
+        "category": "temperature-sensor",
+        "type": "decimal",
+        "unit": "celsius",
+        "min": 0,
+        "max": 60,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device1:target",
+        "category": "water-heater",
+        "type": "target-temperature",
+        "unit": "celsius",
+        "min": 20,
+        "max": 40,
+        "step": 0.5,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device1:heater",
+        "category": "water-heater",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device1:heating",
+        "category": "water-heater",
+        "type": "heating",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device1:power",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device1:filter",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device1:bubbles_level",
+        "category": "text",
+        "type": "select",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device1:errors",
+        "category": "text",
+        "type": "text",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:spa:v1-device2",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:spa:v1-device2:temperature",
+        "category": "temperature-sensor",
+        "type": "decimal",
+        "unit": "celsius",
+        "min": 0,
+        "max": 60,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device2:target",
+        "category": "water-heater",
+        "type": "target-temperature",
+        "unit": "celsius",
+        "min": 20,
+        "max": 40,
+        "step": 0.5,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device2:heater",
+        "category": "water-heater",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device2:heating",
+        "category": "water-heater",
+        "type": "heating",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device2:power",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device2:filter",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device2:bubbles_level",
+        "category": "text",
+        "type": "select",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device2:errors",
+        "category": "text",
+        "type": "text",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:spa:v1-device3",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:spa:v1-device3:temperature",
+        "category": "temperature-sensor",
+        "type": "decimal",
+        "unit": "celsius",
+        "min": 0,
+        "max": 60,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device3:target",
+        "category": "water-heater",
+        "type": "target-temperature",
+        "unit": "celsius",
+        "min": 20,
+        "max": 40,
+        "step": 0.5,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device3:heater",
+        "category": "water-heater",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device3:heating",
+        "category": "water-heater",
+        "type": "heating",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device3:power",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device3:filter",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device3:bubbles_level",
+        "category": "text",
+        "type": "select",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device3:jets",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device3:errors",
+        "category": "text",
+        "type": "text",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:spa:v1-device4",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:spa:v1-device4:temperature",
+        "category": "temperature-sensor",
+        "type": "decimal",
+        "unit": "celsius",
+        "min": 0,
+        "max": 60,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device4:target",
+        "category": "water-heater",
+        "type": "target-temperature",
+        "unit": "celsius",
+        "min": 20,
+        "max": 40,
+        "step": 0.5,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device4:heater",
+        "category": "water-heater",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device4:heating",
+        "category": "water-heater",
+        "type": "heating",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device4:power",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device4:filter",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device4:bubbles_level",
+        "category": "text",
+        "type": "select",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device4:jets",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v1-device4:errors",
+        "category": "text",
+        "type": "text",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:spa:v2-device5",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:spa:v2-device5:temperature",
+        "category": "temperature-sensor",
+        "type": "decimal",
+        "unit": "celsius",
+        "min": 0,
+        "max": 60,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device5:target",
+        "category": "water-heater",
+        "type": "target-temperature",
+        "unit": "celsius",
+        "min": 20,
+        "max": 40,
+        "step": 0.5,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device5:heater",
+        "category": "water-heater",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device5:heating",
+        "category": "water-heater",
+        "type": "heating",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device5:power",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device5:filter",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device5:bubbles",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device5:lock",
+        "category": "child-lock",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device5:errors",
+        "category": "text",
+        "type": "text",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:spa:v2-device6",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:spa:v2-device6:temperature",
+        "category": "temperature-sensor",
+        "type": "decimal",
+        "unit": "celsius",
+        "min": 0,
+        "max": 60,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device6:target",
+        "category": "water-heater",
+        "type": "target-temperature",
+        "unit": "celsius",
+        "min": 20,
+        "max": 40,
+        "step": 0.5,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device6:heater",
+        "category": "water-heater",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device6:heating",
+        "category": "water-heater",
+        "type": "heating",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device6:power",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device6:filter",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device6:bubbles",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device6:jets",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:spa:v2-device6:errors",
+        "category": "text",
+        "type": "text",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  },
+  {
+    "external_id": "ext:test-integration:pool_filter:v1-device7",
+    "should_poll": false,
+    "features": [
+      {
+        "external_id": "ext:test-integration:pool_filter:v1-device7:power",
+        "category": "switch",
+        "type": "binary",
+        "unit": null,
+        "min": 0,
+        "max": 1,
+        "step": null,
+        "read_only": false
+      },
+      {
+        "external_id": "ext:test-integration:pool_filter:v1-device7:timer",
+        "category": "duration",
+        "type": "decimal",
+        "unit": "hours",
+        "min": 0,
+        "max": 24,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:pool_filter:v1-device7:cartridge",
+        "category": "text",
+        "type": "text",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": true
+      },
+      {
+        "external_id": "ext:test-integration:pool_filter:v1-device7:errors",
+        "category": "text",
+        "type": "text",
+        "unit": null,
+        "min": 0,
+        "max": 0,
+        "step": null,
+        "read_only": true
+      }
+    ]
+  }
+]

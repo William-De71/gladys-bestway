@@ -1,0 +1,886 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "Bestway Lay-Z-Spa",
+  "description": {
+    "en": "Bestway Lay-Z-Spa inflatable spas: heating, filter, bubbles, temperature, via the cloud.",
+    "fr": "Spas gonflables Bestway Lay-Z-Spa : chauffage, filtration, bulles, température, par le cloud.",
+    "de": "Bestway Lay-Z-Spa Whirlpools: Heizung, Filter, Massage, Temperatur, über die Cloud.",
+    "es": "Spas hinchables Bestway Lay-Z-Spa: calefacción, filtración, burbujas, temperatura, por la nube."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-bestway:0.1.0",
+  "gladys_version": ">=5.1.0",
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-bestway/main/cover.jpg",
+  "categories": ["appliances", "climate"],
+  "transports": ["cloud"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Your Bestway spa",
+        "fr": "Votre spa Bestway",
+        "de": "Ihr Bestway-Whirlpool",
+        "es": "Su spa Bestway"
+      },
+      "description": {
+        "en": "Gladys controls Wi-Fi Lay-Z-Spa (and SaluSpa) spas through the Bestway cloud, with the account of the app you use: Bestway Smart Hub for the models up to about 2024 (V1), Bestway Connect for the newer ones (V2). The spa must first work in that app. Gladys reads it every minute; the e-mail and password stay in Gladys, the spa data goes through the Bestway cloud. Not affiliated with Bestway.",
+        "fr": "Gladys pilote les spas Lay-Z-Spa (et SaluSpa) Wi-Fi par le cloud Bestway, avec le compte de l'application que vous utilisez : Bestway Smart Hub pour les modèles jusqu'à 2024 environ (V1), Bestway Connect pour les plus récents (V2). Le spa doit d'abord fonctionner dans cette application. Gladys le lit chaque minute ; l'e-mail et le mot de passe restent dans Gladys, les données du spa passent par le cloud Bestway. Sans lien avec Bestway.",
+        "de": "Gladys steuert WLAN-Whirlpools Lay-Z-Spa (und SaluSpa) über die Bestway-Cloud, mit dem Konto der App, die Sie nutzen: Bestway Smart Hub für Modelle bis etwa 2024 (V1), Bestway Connect für neuere (V2). Der Whirlpool muss zuerst in dieser App funktionieren. Gladys liest ihn jede Minute; E-Mail und Passwort bleiben in Gladys, die Daten des Whirlpools laufen über die Bestway-Cloud. Nicht mit Bestway verbunden.",
+        "es": "Gladys controla los spas Lay-Z-Spa (y SaluSpa) con Wi-Fi a través de la nube de Bestway, con la cuenta de la aplicación que usa: Bestway Smart Hub para los modelos hasta 2024 aproximadamente (V1), Bestway Connect para los más recientes (V2). El spa debe funcionar primero en esa aplicación. Gladys lo lee cada minuto; el correo y la contraseña se quedan en Gladys, los datos del spa pasan por la nube de Bestway. Sin relación con Bestway."
+      },
+      "links": [
+        {
+          "url": "https://github.com/William-De71/gladys-bestway/blob/main/docs/en.md",
+          "label": {
+            "en": "Setup guide",
+            "fr": "Guide d'installation",
+            "de": "Installationsanleitung",
+            "es": "Guía de instalación"
+          }
+        }
+      ]
+    },
+    {
+      "key": "v1",
+      "type": "section",
+      "label": {
+        "en": "Bestway Smart Hub account (V1)",
+        "fr": "Compte Bestway Smart Hub (V1)",
+        "de": "Konto Bestway Smart Hub (V1)",
+        "es": "Cuenta Bestway Smart Hub (V1)"
+      },
+      "description": {
+        "en": "Leave empty if you do not use the Bestway Smart Hub app. The Lay-Z-Spa Wi-Fi app accounts are not accepted here.",
+        "fr": "Laissez vide si vous n'utilisez pas l'application Bestway Smart Hub. Les comptes de l'application Lay-Z-Spa Wi-Fi ne sont pas acceptés ici.",
+        "de": "Leer lassen, wenn Sie die App Bestway Smart Hub nicht nutzen. Konten der App Lay-Z-Spa Wi-Fi werden hier nicht angenommen.",
+        "es": "Déjelo vacío si no usa la aplicación Bestway Smart Hub. Las cuentas de la aplicación Lay-Z-Spa Wi-Fi no se aceptan aquí."
+      }
+    },
+    {
+      "key": "v1_email",
+      "type": "string",
+      "default": "",
+      "label": {
+        "en": "E-mail",
+        "fr": "E-mail",
+        "de": "E-Mail",
+        "es": "Correo electrónico"
+      },
+      "placeholder": {
+        "en": "you@example.com",
+        "fr": "vous@exemple.fr",
+        "de": "sie@beispiel.de",
+        "es": "usted@ejemplo.es"
+      }
+    },
+    {
+      "key": "v1_password",
+      "type": "secret",
+      "label": {
+        "en": "Password",
+        "fr": "Mot de passe",
+        "de": "Passwort",
+        "es": "Contraseña"
+      }
+    },
+    {
+      "key": "v1_region",
+      "type": "select",
+      "default": "eu",
+      "label": {
+        "en": "Region of the account",
+        "fr": "Région du compte",
+        "de": "Region des Kontos",
+        "es": "Región de la cuenta"
+      },
+      "description": {
+        "en": "The region chosen when the account was created. If the login fails or no spa is found, try the other one.",
+        "fr": "La région choisie à la création du compte. Si la connexion échoue ou qu'aucun spa n'est trouvé, essayez l'autre.",
+        "de": "Die beim Anlegen des Kontos gewählte Region. Schlägt die Anmeldung fehl oder wird kein Whirlpool gefunden, versuchen Sie die andere.",
+        "es": "La región elegida al crear la cuenta. Si el inicio de sesión falla o no se encuentra ningún spa, pruebe la otra."
+      },
+      "options": [
+        {
+          "value": "eu",
+          "label": {
+            "en": "Europe",
+            "fr": "Europe",
+            "de": "Europa",
+            "es": "Europa"
+          }
+        },
+        {
+          "value": "us",
+          "label": {
+            "en": "United States",
+            "fr": "États-Unis",
+            "de": "Vereinigte Staaten",
+            "es": "Estados Unidos"
+          }
+        }
+      ]
+    },
+    {
+      "key": "v2",
+      "type": "section",
+      "label": {
+        "en": "Bestway Connect account (V2)",
+        "fr": "Compte Bestway Connect (V2)",
+        "de": "Konto Bestway Connect (V2)",
+        "es": "Cuenta Bestway Connect (V2)"
+      },
+      "description": {
+        "en": "For the spas of the Bestway Connect app (2025 and later). Use the e-mail and password of that app: the sharing QR code is no longer needed.",
+        "fr": "Pour les spas de l'application Bestway Connect (2025 et après). Utilisez l'e-mail et le mot de passe de cette application : le QR code de partage n'est plus nécessaire.",
+        "de": "Für die Whirlpools der App Bestway Connect (ab 2025). Nutzen Sie E-Mail und Passwort dieser App: Der Freigabe-QR-Code wird nicht mehr benötigt.",
+        "es": "Para los spas de la aplicación Bestway Connect (2025 y posteriores). Use el correo y la contraseña de esa aplicación: el código QR para compartir ya no es necesario."
+      }
+    },
+    {
+      "key": "v2_email",
+      "type": "string",
+      "default": "",
+      "label": {
+        "en": "E-mail",
+        "fr": "E-mail",
+        "de": "E-Mail",
+        "es": "Correo electrónico"
+      },
+      "placeholder": {
+        "en": "you@example.com",
+        "fr": "vous@exemple.fr",
+        "de": "sie@beispiel.de",
+        "es": "usted@ejemplo.es"
+      }
+    },
+    {
+      "key": "v2_password",
+      "type": "secret",
+      "label": {
+        "en": "Password",
+        "fr": "Mot de passe",
+        "de": "Passwort",
+        "es": "Contraseña"
+      }
+    },
+    {
+      "key": "v2_region",
+      "type": "select",
+      "default": "eu",
+      "label": {
+        "en": "Region of the account",
+        "fr": "Région du compte",
+        "de": "Region des Kontos",
+        "es": "Región de la cuenta"
+      },
+      "options": [
+        {
+          "value": "eu",
+          "label": {
+            "en": "Europe",
+            "fr": "Europe",
+            "de": "Europa",
+            "es": "Europa"
+          }
+        },
+        {
+          "value": "us",
+          "label": {
+            "en": "United States",
+            "fr": "États-Unis",
+            "de": "Vereinigte Staaten",
+            "es": "Estados Unidos"
+          }
+        },
+        {
+          "value": "cn",
+          "label": {
+            "en": "China",
+            "fr": "Chine",
+            "de": "China",
+            "es": "China"
+          }
+        }
+      ]
+    },
+    {
+      "key": "settings",
+      "type": "section",
+      "label": {
+        "en": "Settings",
+        "fr": "Réglages",
+        "de": "Einstellungen",
+        "es": "Ajustes"
+      }
+    },
+    {
+      "key": "poll_interval",
+      "type": "select",
+      "default": "60",
+      "label": {
+        "en": "Read the spas every",
+        "fr": "Lire les spas toutes les",
+        "de": "Whirlpools lesen alle",
+        "es": "Leer los spas cada"
+      },
+      "options": [
+        {
+          "value": "30",
+          "label": {
+            "en": "30 seconds",
+            "fr": "30 secondes",
+            "de": "30 Sekunden",
+            "es": "30 segundos"
+          }
+        },
+        {
+          "value": "60",
+          "label": {
+            "en": "1 minute",
+            "fr": "1 minute",
+            "de": "1 Minute",
+            "es": "1 minuto"
+          }
+        },
+        {
+          "value": "120",
+          "label": {
+            "en": "2 minutes",
+            "fr": "2 minutes",
+            "de": "2 Minuten",
+            "es": "2 minutos"
+          }
+        },
+        {
+          "value": "300",
+          "label": {
+            "en": "5 minutes",
+            "fr": "5 minutes",
+            "de": "5 Minuten",
+            "es": "5 minutos"
+          }
+        }
+      ]
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "default": "en",
+      "label": {
+        "en": "Language of the names and texts",
+        "fr": "Langue des noms et des textes",
+        "de": "Sprache der Namen und Texte",
+        "es": "Idioma de los nombres y textos"
+      },
+      "description": {
+        "en": "Gladys does not tell integrations the language of its users: choose the one of the feature names and of the error messages.",
+        "fr": "Gladys n'indique pas aux intégrations la langue de ses utilisateurs : choisissez celle des noms des fonctionnalités et des messages d'erreur.",
+        "de": "Gladys teilt Integrationen die Sprache der Benutzer nicht mit: Wählen Sie die der Funktionsnamen und der Fehlermeldungen.",
+        "es": "Gladys no indica a las integraciones el idioma de sus usuarios: elija el de los nombres de las funciones y de los mensajes de error."
+      },
+      "options": [
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "Anglais",
+            "de": "Englisch",
+            "es": "Inglés"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "French",
+            "fr": "Français",
+            "de": "Französisch",
+            "es": "Francés"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "German",
+            "fr": "Allemand",
+            "de": "Deutsch",
+            "es": "Alemán"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Spanish",
+            "fr": "Espagnol",
+            "de": "Spanisch",
+            "es": "Español"
+          }
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "key": "test_connection",
+      "timeout_seconds": 90,
+      "label": {
+        "en": "Test the accounts",
+        "fr": "Tester les comptes",
+        "de": "Konten testen",
+        "es": "Probar las cuentas"
+      },
+      "description": {
+        "en": "Logs in with the accounts above and lists every spa found, with its model and its water temperature.",
+        "fr": "Se connecte avec les comptes ci-dessus et liste chaque spa trouvé, avec son modèle et la température de son eau.",
+        "de": "Meldet sich mit den obigen Konten an und listet jeden gefundenen Whirlpool mit Modell und Wassertemperatur auf.",
+        "es": "Inicia sesión con las cuentas de arriba y lista cada spa encontrado, con su modelo y la temperatura del agua."
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "key": "spa",
+      "icon": "droplet",
+      "label": {
+        "en": "Spa",
+        "fr": "Spa",
+        "de": "Whirlpool",
+        "es": "Spa"
+      },
+      "description": {
+        "en": "The water, its target, the heater, when it is ready; buttons to heat and for the bubbles.",
+        "fr": "L'eau, sa consigne, le chauffage, l'heure où c'est prêt ; boutons pour chauffer et pour les bulles.",
+        "de": "Wasser, Soll, Heizung, wann es bereit ist; Tasten zum Heizen und für das Massage.",
+        "es": "El agua, su consigna, la calefacción, cuándo está listo; botones para calentar y para las burbujas."
+      },
+      "settings": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": false,
+          "label": {
+            "en": "Spa (the first if empty)",
+            "fr": "Spa (le premier si vide)",
+            "de": "Whirlpool (der erste, wenn leer)",
+            "es": "Spa (el primero si vacío)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "history",
+      "icon": "trending-up",
+      "label": {
+        "en": "Spa curve",
+        "fr": "Courbe du spa",
+        "de": "Whirlpool-Kurve",
+        "es": "Curva del spa"
+      },
+      "description": {
+        "en": "The water temperature and the target over a day or a week, and how fast the spa heats.",
+        "fr": "La température de l'eau et la consigne sur un jour ou une semaine, et la vitesse de chauffe.",
+        "de": "Wassertemperatur und Soll über einen Tag oder eine Woche, und wie schnell der Whirlpool heizt.",
+        "es": "La temperatura del agua y la consigna durante un día o una semana, y la velocidad de calentamiento."
+      },
+      "settings": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": false,
+          "label": {
+            "en": "Spa (the first if empty)",
+            "fr": "Spa (le premier si vide)",
+            "de": "Whirlpool (der erste, wenn leer)",
+            "es": "Spa (el primero si vacío)"
+          }
+        },
+        {
+          "key": "period",
+          "type": "select",
+          "default": "last-day",
+          "label": {
+            "en": "Period",
+            "fr": "Période",
+            "de": "Zeitraum",
+            "es": "Periodo"
+          },
+          "options": [
+            {
+              "value": "last-day",
+              "label": {
+                "en": "24 hours",
+                "fr": "24 heures",
+                "de": "24 Stunden",
+                "es": "24 horas"
+              }
+            },
+            {
+              "value": "last-three-days",
+              "label": {
+                "en": "3 days",
+                "fr": "3 jours",
+                "de": "3 Tage",
+                "es": "3 días"
+              }
+            },
+            {
+              "value": "last-week",
+              "label": {
+                "en": "7 days",
+                "fr": "7 jours",
+                "de": "7 Tage",
+                "es": "7 días"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "target_reached",
+      "label": {
+        "en": "The spa water reaches its target",
+        "fr": "L'eau du spa atteint sa consigne",
+        "de": "Das Wasser erreicht die Solltemperatur",
+        "es": "El agua del spa alcanza su consigna"
+      },
+      "description": {
+        "en": "The heater reports the water at its target temperature: time for a bath.",
+        "fr": "Le chauffage signale l'eau à sa température de consigne : c'est l'heure du bain.",
+        "de": "Die Heizung meldet das Wasser auf Solltemperatur: Zeit für ein Bad.",
+        "es": "La calefacción indica el agua a su temperatura de consigna: es hora del baño."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": false,
+          "label": {
+            "en": "Spa (any if empty)",
+            "fr": "Spa (tous si vide)",
+            "de": "Whirlpool (alle, wenn leer)",
+            "es": "Spa (cualquiera si vacío)"
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "device",
+          "type": "string",
+          "label": {
+            "en": "Device",
+            "fr": "Appareil",
+            "de": "Gerät",
+            "es": "Dispositivo"
+          }
+        },
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l'appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": {
+            "en": "Water (°C)",
+            "fr": "Eau (°C)",
+            "de": "Wasser (°C)",
+            "es": "Agua (°C)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "error_occurred",
+      "label": {
+        "en": "The spa reports an error",
+        "fr": "Le spa signale une erreur",
+        "de": "Der Whirlpool meldet einen Fehler",
+        "es": "El spa indica un error"
+      },
+      "description": {
+        "en": "A new error code (E01, E02...) on the spa or the pool filter pump: see its manual for the meaning.",
+        "fr": "Un nouveau code d'erreur (E01, E02...) sur le spa ou la pompe de filtration : voir sa notice pour le sens.",
+        "de": "Ein neuer Fehlercode (E01, E02...) am Whirlpool oder an der Filterpumpe: Bedeutung siehe Anleitung.",
+        "es": "Un nuevo código de error (E01, E02...) en el spa o la bomba de filtración: vea su manual para el significado."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": false,
+          "label": {
+            "en": "Spa (any if empty)",
+            "fr": "Spa (tous si vide)",
+            "de": "Whirlpool (alle, wenn leer)",
+            "es": "Spa (cualquiera si vacío)"
+          }
+        },
+        {
+          "key": "error_code",
+          "type": "string",
+          "required": false,
+          "label": {
+            "en": "Code (any if empty)",
+            "fr": "Code (tous si vide)",
+            "de": "Code (alle, wenn leer)",
+            "es": "Código (cualquiera si vacío)"
+          },
+          "placeholder": {
+            "en": "E02",
+            "fr": "E02",
+            "de": "E02",
+            "es": "E02"
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "device",
+          "type": "string",
+          "label": {
+            "en": "Device",
+            "fr": "Appareil",
+            "de": "Gerät",
+            "es": "Dispositivo"
+          }
+        },
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l'appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        },
+        {
+          "key": "error_code",
+          "type": "string",
+          "label": {
+            "en": "Error code",
+            "fr": "Code d'erreur",
+            "de": "Fehlercode",
+            "es": "Código de error"
+          }
+        },
+        {
+          "key": "errors",
+          "type": "string",
+          "label": {
+            "en": "All current errors",
+            "fr": "Toutes les erreurs en cours",
+            "de": "Alle aktuellen Fehler",
+            "es": "Todos los errores actuales"
+          }
+        }
+      ]
+    },
+    {
+      "key": "device_offline",
+      "label": {
+        "en": "The spa is unreachable",
+        "fr": "Le spa est injoignable",
+        "de": "Der Whirlpool ist nicht erreichbar",
+        "es": "El spa es inaccesible"
+      },
+      "description": {
+        "en": "No answer through the Bestway cloud for 5 minutes (Wi-Fi, power cut, cloud down).",
+        "fr": "Aucune réponse par le cloud Bestway depuis 5 minutes (Wi-Fi, coupure de courant, cloud en panne).",
+        "de": "Seit 5 Minuten keine Antwort über die Bestway-Cloud (WLAN, Stromausfall, Cloud gestört).",
+        "es": "Sin respuesta a través de la nube de Bestway desde hace 5 minutos (Wi-Fi, corte de luz, nube caída)."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": false,
+          "label": {
+            "en": "Spa (any if empty)",
+            "fr": "Spa (tous si vide)",
+            "de": "Whirlpool (alle, wenn leer)",
+            "es": "Spa (cualquiera si vacío)"
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "device",
+          "type": "string",
+          "label": {
+            "en": "Device",
+            "fr": "Appareil",
+            "de": "Gerät",
+            "es": "Dispositivo"
+          }
+        },
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l'appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        }
+      ]
+    },
+    {
+      "key": "device_online",
+      "label": {
+        "en": "The spa answers again",
+        "fr": "Le spa répond à nouveau",
+        "de": "Der Whirlpool antwortet wieder",
+        "es": "El spa responde de nuevo"
+      },
+      "description": {
+        "en": "After an unreachable event only.",
+        "fr": "Seulement après un événement « injoignable ».",
+        "de": "Nur nach einem Ereignis „nicht erreichbar“.",
+        "es": "Solo tras un evento «inaccesible»."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": false,
+          "label": {
+            "en": "Spa (any if empty)",
+            "fr": "Spa (tous si vide)",
+            "de": "Whirlpool (alle, wenn leer)",
+            "es": "Spa (cualquiera si vacío)"
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "device",
+          "type": "string",
+          "label": {
+            "en": "Device",
+            "fr": "Appareil",
+            "de": "Gerät",
+            "es": "Dispositivo"
+          }
+        },
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l'appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "read_values",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Read the spa",
+        "fr": "Lire le spa",
+        "de": "Whirlpool auslesen",
+        "es": "Leer el spa"
+      },
+      "description": {
+        "en": "A fresh reading for a message or a condition: water, target, heater, when it is ready, errors.",
+        "fr": "Une lecture fraîche pour un message ou une condition : eau, consigne, chauffage, heure où c'est prêt, erreurs.",
+        "de": "Eine frische Lesung für eine Nachricht oder Bedingung: Wasser, Soll, Heizung, wann bereit, Fehler.",
+        "es": "Una lectura reciente para un mensaje o una condición: agua, consigna, calefacción, cuándo está listo, errores."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Spa",
+            "fr": "Spa",
+            "de": "Whirlpool",
+            "es": "Spa"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "water_temperature",
+          "type": "number",
+          "label": {
+            "en": "Water (°C)",
+            "fr": "Eau (°C)",
+            "de": "Wasser (°C)",
+            "es": "Agua (°C)"
+          }
+        },
+        {
+          "key": "target_temperature",
+          "type": "number",
+          "label": {
+            "en": "Target (°C)",
+            "fr": "Consigne (°C)",
+            "de": "Soll (°C)",
+            "es": "Consigna (°C)"
+          }
+        },
+        {
+          "key": "heater",
+          "type": "boolean",
+          "label": {
+            "en": "Heater on",
+            "fr": "Chauffage allumé",
+            "de": "Heizung an",
+            "es": "Calefacción encendida"
+          }
+        },
+        {
+          "key": "heater_text",
+          "type": "string",
+          "label": {
+            "en": "Heater",
+            "fr": "Chauffage",
+            "de": "Heizung",
+            "es": "Calefacción"
+          }
+        },
+        {
+          "key": "minutes_to_target",
+          "type": "number",
+          "label": {
+            "en": "Minutes to the target",
+            "fr": "Minutes avant la consigne",
+            "de": "Minuten bis zum Soll",
+            "es": "Minutos hasta la consigna"
+          }
+        },
+        {
+          "key": "ready_at",
+          "type": "string",
+          "label": {
+            "en": "Ready at",
+            "fr": "Prêt vers",
+            "de": "Bereit um",
+            "es": "Listo a las"
+          }
+        },
+        {
+          "key": "errors",
+          "type": "string",
+          "label": {
+            "en": "Errors",
+            "fr": "Erreurs",
+            "de": "Fehler",
+            "es": "Errores"
+          }
+        }
+      ]
+    },
+    {
+      "key": "heat_to",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Heat the spa to",
+        "fr": "Chauffer le spa à",
+        "de": "Whirlpool heizen auf",
+        "es": "Calentar el spa a"
+      },
+      "description": {
+        "en": "Sets the target and switches the heater on (with the filter pump). Nothing is sent again when it is already so.",
+        "fr": "Règle la consigne et allume le chauffage (avec la filtration). Rien n'est renvoyé si c'est déjà le cas.",
+        "de": "Setzt die Solltemperatur und schaltet die Heizung ein (mit der Filterpumpe). Nichts wird erneut gesendet, wenn es schon so ist.",
+        "es": "Fija la consigna y enciende la calefacción (con la filtración). No se vuelve a enviar nada si ya es así."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Spa",
+            "fr": "Spa",
+            "de": "Whirlpool",
+            "es": "Spa"
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "required": true,
+          "default": 38,
+          "min": 20,
+          "max": 40,
+          "label": {
+            "en": "Temperature (°C)",
+            "fr": "Température (°C)",
+            "de": "Temperatur (°C)",
+            "es": "Temperatura (°C)"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "target_temperature",
+          "type": "number",
+          "label": {
+            "en": "Target (°C)",
+            "fr": "Consigne (°C)",
+            "de": "Soll (°C)",
+            "es": "Consigna (°C)"
+          }
+        },
+        {
+          "key": "water_temperature",
+          "type": "number",
+          "label": {
+            "en": "Water (°C)",
+            "fr": "Eau (°C)",
+            "de": "Wasser (°C)",
+            "es": "Agua (°C)"
+          }
+        },
+        {
+          "key": "minutes_to_target",
+          "type": "number",
+          "label": {
+            "en": "Minutes to the target",
+            "fr": "Minutes avant la consigne",
+            "de": "Minuten bis zum Soll",
+            "es": "Minutos hasta la consigna"
+          }
+        },
+        {
+          "key": "ready_at",
+          "type": "string",
+          "label": {
+            "en": "Ready at",
+            "fr": "Prêt vers",
+            "de": "Bereit um",
+            "es": "Listo a las"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" font-family="Inter, 'DejaVu Sans', Arial, sans-serif">
+  <title>Architecture of the Bestway Lay-Z-Spa integration for Gladys Assistant (illustration)</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#46505a"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="500" fill="#ffffff"/>
+  <text x="980" y="492" text-anchor="end" font-size="12" fill="#8a949e">illustration</text>
+
+  <!-- Gladys -->
+  <rect x="20" y="40" width="230" height="320" rx="14" fill="#eef4fb" stroke="#2979d6" stroke-width="2"/>
+  <text x="135" y="72" text-anchor="middle" font-size="18" font-weight="700" fill="#1d5fae">Gladys Assistant</text>
+  <g font-size="13.5" fill="#24303c">
+    <rect x="38" y="90" width="194" height="34" rx="8" fill="#ffffff" stroke="#bcd3ee"/>
+    <text x="135" y="112" text-anchor="middle">Spa devices</text>
+    <rect x="38" y="132" width="194" height="34" rx="8" fill="#ffffff" stroke="#bcd3ee"/>
+    <text x="135" y="154" text-anchor="middle">Commands, history</text>
+    <rect x="38" y="174" width="194" height="52" rx="8" fill="#ffffff" stroke="#bcd3ee"/>
+    <text x="135" y="196" text-anchor="middle">Scenes: water at target,</text>
+    <text x="135" y="214" text-anchor="middle">error, heat to</text>
+    <rect x="38" y="234" width="194" height="52" rx="8" fill="#ffffff" stroke="#bcd3ee"/>
+    <text x="135" y="256" text-anchor="middle">Widgets: spa (buttons),</text>
+    <text x="135" y="274" text-anchor="middle">spa curve</text>
+  </g>
+
+  <!-- Gladys <-> container -->
+  <line x1="254" y1="200" x2="356" y2="200" stroke="#46505a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <g font-size="11" fill="#46505a" text-anchor="middle">
+    <text x="305" y="172">REST</text>
+    <text x="305" y="188">/api/integration/v1</text>
+    <text x="305" y="222">+ WebSocket</text>
+  </g>
+
+  <!-- Container -->
+  <rect x="360" y="40" width="270" height="320" rx="14" fill="#f4f6f8" stroke="#46505a" stroke-width="2"/>
+  <text x="495" y="72" text-anchor="middle" font-size="18" font-weight="700" fill="#24303c">Integration container</text>
+  <g font-size="13.5" fill="#24303c">
+    <rect x="378" y="90" width="234" height="34" rx="8" fill="#ffffff" stroke="#cfd6dd"/>
+    <text x="495" y="112" text-anchor="middle">Node.js + Gladys SDK</text>
+    <rect x="378" y="132" width="234" height="52" rx="8" fill="#ffffff" stroke="#cfd6dd"/>
+    <text x="495" y="154" text-anchor="middle">src/hub.js: reading every</text>
+    <text x="495" y="172" text-anchor="middle">30 s to 5 min, commands held</text>
+    <rect x="378" y="192" width="234" height="52" rx="8" fill="#fff7ec" stroke="#f0b35c"/>
+    <text x="495" y="214" text-anchor="middle">logins spared: session kept,</text>
+    <text x="495" y="232" text-anchor="middle">pause after a refusal</text>
+    <rect x="378" y="252" width="234" height="52" rx="8" fill="#ffffff" stroke="#cfd6dd"/>
+    <text x="495" y="274" text-anchor="middle">/data: sessions,</text>
+    <text x="495" y="292" text-anchor="middle">12 h of water temperatures</text>
+  </g>
+  <text x="495" y="340" text-anchor="middle" font-size="12.5" fill="#6b7580">read-only rootfs, 256 MB, non-root</text>
+
+  <!-- container <-> clouds -->
+  <line x1="634" y1="200" x2="736" y2="200" stroke="#d9822b" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <g font-size="12.5" fill="#b4651c" text-anchor="middle">
+    <text x="685" y="172">HTTPS</text>
+    <text x="685" y="188">account login</text>
+    <text x="685" y="222">state</text>
+    <text x="685" y="238">commands</text>
+  </g>
+
+  <!-- Clouds and spa -->
+  <rect x="740" y="40" width="240" height="320" rx="14" fill="#fdf4ea" stroke="#d9822b" stroke-width="2"/>
+  <text x="860" y="72" text-anchor="middle" font-size="18" font-weight="700" fill="#a45a17">Bestway clouds</text>
+  <g font-size="13.5" fill="#24303c" text-anchor="middle">
+    <text x="860" y="108">V1 Smart Hub: Gizwits</text>
+    <text x="860" y="126">(Europe, United States)</text>
+    <text x="860" y="160">V2 Bestway Connect:</text>
+    <text x="860" y="178">SmartSpa gateway</text>
+    <text x="860" y="196">(Europe, US, China)</text>
+    <text x="860" y="240">↕ Wi-Fi of the spa</text>
+    <text x="860" y="280">Lay-Z-Spa / SaluSpa,</text>
+    <text x="860" y="298">Flowclear filter pump</text>
+  </g>
+
+  <g font-size="13" fill="#46505a">
+    <text x="20" y="400">The integration uses the account of the Bestway app: the spa must work in that app first. Its data goes through the Bestway cloud.</text>
+    <text x="20" y="424">A command is shown at once and checked by a reading 15 s later: the clouds take 5 to 30 s to report a change.</text>
+    <text x="20" y="448">The password stays in Gladys (a secret); only the session token is kept in /data, never in the logs.</text>
+  </g>
+</svg>
