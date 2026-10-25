@@ -8,8 +8,8 @@
     "de": "Bestway Lay-Z-Spa Whirlpools: Heizung, Filter, Massage, Temperatur, über die Cloud.",
     "es": "Spas hinchables Bestway Lay-Z-Spa: calefacción, filtración, burbujas, temperatura, por la nube."
   },
-  "version": "0.1.1",
-  "docker_image": "ghcr.io/william-de71/gladys-bestway:0.1.1",
+  "version": "0.2.0",
+  "docker_image": "ghcr.io/william-de71/gladys-bestway:0.2.0",
   "gladys_version": ">=5.3.0",
   "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-bestway/main/cover.jpg",
   "categories": ["appliances", "climate"],

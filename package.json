@@ -1,6 +1,6 @@
 {
   "name": "gladys-bestway",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "description": "External Gladys Assistant integration for Bestway Lay-Z-Spa Wi-Fi spas (Smart Hub and Bestway Connect apps), through the Bestway cloud.",
   "homepage": "https://github.com/William-De71/gladys-bestway",
