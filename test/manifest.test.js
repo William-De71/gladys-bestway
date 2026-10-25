@@ -39,8 +39,9 @@ test('one version everywhere, image of this repository', () => {
 
 test('store rules: type, Gladys version, transports, categories, permissions', () => {
   assert.equal(manifest.type, 'device');
-  // widgets and scene_* need 5.1.0; no widget form, no houses source.
-  assert.equal(manifest.gladys_version, '>=5.1.0');
+  // 5.3.0 for the catalog keywords (widgets and scene_* since 5.1.0); no widget
+  // form, no houses source.
+  assert.equal(manifest.gladys_version, '>=5.3.0');
   // Both accounts go through the Bestway clouds (README "Transport").
   assert.deepEqual(manifest.transports, ['cloud']);
   assert.deepEqual(manifest.categories, ['appliances', 'climate']);
@@ -132,4 +133,16 @@ test('widgets: the keys of the code, settings without secrets', () => {
   const period = byKey(byKey(manifest.widgets).history.settings).period;
   assert.deepEqual(values(period), HISTORY_PERIODS);
   assert.equal(period.default, HISTORY_PERIODS[0]);
+});
+
+test('catalog of Gladys 5.3.0: search keywords within the store bounds, countries', () => {
+  const { keywords } = manifest;
+  assert.ok(Array.isArray(keywords) && keywords.length >= 1 && keywords.length <= 10);
+  const normalized = keywords.map((keyword) => keyword.trim().toLowerCase());
+  for (const keyword of normalized) {
+    assert.ok(keyword.length >= 2 && keyword.length <= 30, keyword);
+  }
+  assert.equal(new Set(normalized).size, normalized.length, 'unique once trimmed and lowercased');
+  assert.ok(!normalized.includes(manifest.name.toLowerCase()), 'never the name itself');
+  assert.equal(manifest.countries, undefined, 'usable worldwide: no country list');
 });

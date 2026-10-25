@@ -12,7 +12,7 @@ Nicht mit Bestway verbunden.
 
 ## Voraussetzungen
 
-- Gladys Assistant 5.1.0 oder neuer, mit Internetzugang.
+- Gladys Assistant 5.3.0 oder neuer, mit Internetzugang.
 - Ein Bestway-WLAN-Whirlpool, der in einer dieser Apps funktioniert, und E-Mail und Passwort dieser App:
   - **Bestway Smart Hub** (Modelle bis etwa 2024, hier V1 genannt);
   - **Bestway Connect** (Modelle ab 2025, hier V2 genannt).

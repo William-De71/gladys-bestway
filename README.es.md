@@ -5,7 +5,7 @@
 [![Licencia: Apache-2.0](https://img.shields.io/badge/licencia-Apache--2.0-blue.svg)](LICENSE)
 [![Última versión](https://img.shields.io/github/v/release/William-De71/gladys-bestway?sort=semver)](https://github.com/William-De71/gladys-bestway/releases)
 [![CI](https://img.shields.io/github/actions/workflow/status/William-De71/gladys-bestway/release.yml?branch=main&label=CI)](https://github.com/William-De71/gladys-bestway/actions/workflows/release.yml)
-[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.1.0-2f6fb5)](https://gladysassistant.com)
+[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.3.0-2f6fb5)](https://gladysassistant.com)
 
 ![Bestway Lay-Z-Spa para Gladys Assistant](cover.jpg)
 
@@ -138,7 +138,7 @@ Ejemplos:
 
 ## Requisitos
 
-- Gladys Assistant **5.1.0 o posterior** (widgets de panel, activadores y acciones de escena de las integraciones; las instancias más antiguas no pueden instalar la integración).
+- Gladys Assistant **5.3.0 o posterior** (palabras clave y países del catálogo, widgets de panel, activadores y acciones de escena de las integraciones; las instancias más antiguas no pueden instalar la integración).
 - Un spa Wi-Fi Bestway (o una bomba Flowclear Smart Touch) **que funcione en la aplicación Bestway Smart Hub o Bestway Connect**, y el correo y la contraseña de esa aplicación.
 - Gladys debe tener acceso a Internet.
 

@@ -12,7 +12,7 @@ Not affiliated with Bestway.
 
 ## Requirements
 
-- Gladys Assistant 5.1.0 or later, with Internet access.
+- Gladys Assistant 5.3.0 or later, with Internet access.
 - A Bestway Wi-Fi spa that works in one of these apps, and the e-mail and password of that app:
   - **Bestway Smart Hub** (models up to about 2024, called V1 here);
   - **Bestway Connect** (models from 2025, called V2 here).
