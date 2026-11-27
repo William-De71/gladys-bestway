@@ -70,3 +70,33 @@ test('no spa: a caption that says what to do', () => {
     assert.match(content.components[0].text.fr, /compte Bestway/);
   }
 });
+
+test('spas with jets: a jets button and one target button with a form', () => {
+  const view = (family, attrs) => ({
+    name: 'Spa',
+    device: 'ext:test-integration:spa:v1-x',
+    reachable: true,
+    state: readState(family, attrs),
+    caps: capabilitiesOf(family),
+    ready: null,
+    rate: null,
+    features: { temperature: null, target: null },
+  });
+  const keys = (content) =>
+    content.components.filter((component) => component.type === 'button').map((b) => b.action.key);
+
+  const jets = buildSpaWidget(view(FAMILIES.HYDROJET_PRO, FULL));
+  assert.deepEqual(validateWidgetContent(jets), []);
+  assert.deepEqual(keys(jets), ['heater_off', 'bubbles_off', 'jets_off', 'target_set']);
+  const form = jets.components.find((component) => component.action?.key === 'target_set');
+  assert.deepEqual(
+    form.action.fields.map((field) => [field.key, field.type, field.min, field.max, field.default]),
+    [['target', 'number', 20, 40, 38]],
+  );
+  const idle = buildSpaWidget(view(FAMILIES.V2_HYDROJET, { ...FULL, hydrojet_state: 0 }));
+  assert.ok(keys(idle).includes('jets_on'));
+
+  // Without jets, nothing changes: -1 / +1.
+  const airjet = buildSpaWidget(view(FAMILIES.AIRJET_V01, FULL));
+  assert.deepEqual(keys(airjet), ['heater_off', 'bubbles_off', 'target_down', 'target_up']);
+});

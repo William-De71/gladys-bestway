@@ -56,7 +56,7 @@ Ein Befehl erscheint sofort und bleibt, bis die Cloud ihn meldet (5 bis 30 Sekun
 
 ### Widgets
 
-- **Whirlpool**: Wasser und Soll, die Heizung (aus, heizt, „bereit um 20:30“, Temperatur erreicht), die Filterpumpe, die Massage, die Düsen, die Fehler und Tasten zum Heizen, für die Massage und um das Soll um ein Grad zu ändern.
+- **Whirlpool**: Wasser und Soll, die Heizung (aus, heizt, „bereit um 20:30“, Temperatur erreicht), die Filterpumpe, die Massage, die Düsen, die Fehler und Tasten zum Heizen, für die Massage und um das Soll um ein Grad zu ändern. Bei HydroJet-Whirlpools: eine Taste für die Düsen und eine einzige Taste **Solltemperatur**, die nach der Temperatur fragt, statt -1 / +1.
 - **Whirlpool-Kurve**: Wasser- und Solltemperatur über 24 Stunden, 3 oder 7 Tage (das Gerät muss hinzugefügt sein) und die Heizrate des Whirlpools.
 
 Die Uhrzeit „bereit um“ erscheint nach 45 Minuten Heizen: Die Integration misst die Heizrate und merkt sie sich für die nächsten Male.

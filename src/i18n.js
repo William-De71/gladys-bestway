@@ -111,6 +111,15 @@ const MESSAGES = {
   widgetBubblesOff: m('Stop bubbles', 'Couper les bulles', 'Massage aus', 'Parar burbujas'),
   widgetTargetDown: m('-1 °C', '-1 °C', '-1 °C', '-1 °C'),
   widgetTargetUp: m('+1 °C', '+1 °C', '+1 °C', '+1 °C'),
+  widgetJetsOn: m('Jets', 'Jets', 'Düsen', 'Chorros'),
+  widgetJetsOff: m('Stop jets', 'Couper les jets', 'Düsen aus', 'Parar chorros'),
+  widgetTargetSet: m('Target', 'Consigne', 'Solltemperatur', 'Consigna'),
+  widgetTargetField: m(
+    'Target (20 to 40 °C)',
+    'Consigne (20 à 40 °C)',
+    'Solltemperatur (20 bis 40 °C)',
+    'Consigna (20 a 40 °C)',
+  ),
   widgetTemperatures: m(
     'Water and target',
     'Eau et consigne',
@@ -146,6 +155,8 @@ const MESSAGES = {
   ),
   toastBubblesOn: m('Bubbles on.', 'Bulles en marche.', 'Massage an.', 'Burbujas en marcha.'),
   toastBubblesOff: m('Bubbles off.', 'Bulles coupées.', 'Massage aus.', 'Burbujas paradas.'),
+  toastJetsOn: m('Jets on.', 'Jets en marche.', 'Düsen an.', 'Chorros en marcha.'),
+  toastJetsOff: m('Jets off.', 'Jets coupés.', 'Düsen aus.', 'Chorros parados.'),
   toastTarget: m(
     'Target set to {target} °C.',
     'Consigne réglée à {target} °C.',

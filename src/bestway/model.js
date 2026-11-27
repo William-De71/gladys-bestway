@@ -58,6 +58,35 @@ export const BUBBLES_LEVELS = ['off', 'medium', 'max'];
 // Bounds of the spas, in their own unit.
 export const TARGET_BOUNDS = { C: [20, 40], F: [68, 104] };
 
+// The Gizwits product names, folded: case, spaces, `_` and `-` vary between
+// accounts and firmwares ("Hydrojet_Pro", "HydroJet Pro").
+const fold = (name) =>
+  String(name ?? '')
+    .toLowerCase()
+    .replace(/[\s_-]+/g, '');
+const V1_FOLDED = new Map(
+  Object.entries(V1_PRODUCTS).map(([name, family]) => [fold(name), family]),
+);
+
+/**
+ * @description The family of a V1 product name.
+ * @param {string} product - Gizwits `product_name`.
+ * @returns {string|null} A FAMILIES value, null when unknown.
+ */
+function v1Family(product) {
+  const folded = fold(product);
+  const known = V1_FOLDED.get(folded);
+  if (known) {
+    return known;
+  }
+  // An unknown HydroJet name: the HydroJet vocabulary is shared by the V1
+  // spas other than "Airjet", and a spa with jets is better than no spa.
+  if (folded.includes('hydrojet')) {
+    return folded.includes('pro') ? FAMILIES.HYDROJET_PRO : FAMILIES.HYDROJET;
+  }
+  return null;
+}
+
 /**
  * @description The family of a device from what the cloud says of it.
  * @param {string} generation - `v1` or `v2`.
@@ -66,7 +95,7 @@ export const TARGET_BOUNDS = { C: [20, 40], F: [68, 104] };
  */
 export function familyOf(generation, device) {
   if (generation === 'v1') {
-    return V1_PRODUCTS[device.product] ?? null;
+    return v1Family(device.product);
   }
   const known = V2_PRODUCT_KEYS[device.productKey];
   if (known) {

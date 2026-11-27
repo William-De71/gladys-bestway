@@ -56,7 +56,7 @@ Une commande s'affiche aussitôt et reste affichée jusqu'à ce que le cloud la 
 
 ### Widgets
 
-- **Spa** : l'eau et sa consigne, le chauffage (arrêt, chauffe, « prêt vers 20 h 30 », température atteinte), la filtration, les bulles, les jets, les erreurs, et des boutons pour chauffer, pour les bulles et pour changer la consigne d'un degré.
+- **Spa** : l'eau et sa consigne, le chauffage (arrêt, chauffe, « prêt vers 20 h 30 », température atteinte), la filtration, les bulles, les jets, les erreurs, et des boutons pour chauffer, pour les bulles et pour changer la consigne d'un degré. Sur les spas HydroJet : un bouton pour les jets, et un seul bouton **Consigne** qui demande la température à la place de -1 / +1.
 - **Courbe du spa** : les températures de l'eau et de consigne sur 24 heures, 3 ou 7 jours (l'appareil doit être ajouté), et la vitesse de chauffe du spa.
 
 L'heure « prêt vers » apparaît après 45 minutes de chauffe : l'intégration mesure la vitesse de chauffe, puis la retient pour les fois suivantes.

@@ -17,7 +17,7 @@ Ihr Bestway-WLAN-Whirlpool (Lay-Z-Spa, SaluSpa) in Gladys Assistant, mit dem Kon
 - **Ein Gerät pro Whirlpool**, benannt wie in der App: Wassertemperatur, Solltemperatur (20 bis 40 °C; auf Fahrenheit eingestellte Whirlpools werden umgerechnet), Heizung, heizt gerade, Strom, Filterpumpe, Massage (an / aus, oder aus / mittel / maximal bei den V1-Modellen mit Stufen), HydroJet-Düsen, Tastensperre und Fehler, je nach Modell. Filterpumpen **Flowclear Smart Touch** (V1): Strom, Filter-Timer, Kartusche wechseln, Fehler.
 - **Befehle, die sofort wirken**: Der neue Wert erscheint sofort und bleibt, bis die Cloud ihn meldet (die Clouds brauchen 5 bis 30 Sekunden), dann prüft eine Lesung 15 Sekunden später ihn. Die Heizung startet auch die Filterpumpe, wie der Whirlpool selbst.
 - **Wann das Wasser bereit ist**: Die Heizrate wird an der Aufheizkurve gemessen und gemerkt; Widget und Szenenaktion geben die Uhrzeit, zu der das Wasser sein Soll erreicht.
-- **Zwei Dashboard-Widgets**: der Whirlpool (Wasser, Soll, Heizung und Uhrzeit, Filterpumpe, Massage, Düsen, Fehler, mit Tasten zum Heizen, für die Massage und um das Soll um ein Grad zu ändern) und die Whirlpool-Kurve (Wasser und Soll über 1, 3 oder 7 Tage, Heizrate).
+- **Zwei Dashboard-Widgets**: der Whirlpool (Wasser, Soll, Heizung und Uhrzeit, Filterpumpe, Massage, Düsen, Fehler, mit Tasten zum Heizen, für die Massage, für die Düsen und um das Soll zu ändern) und die Whirlpool-Kurve (Wasser und Soll über 1, 3 oder 7 Tage, Heizrate).
 - **Vier Szenenauslöser** (Wasser auf Soll, Fehler, Whirlpool nicht erreichbar, Whirlpool wieder da) und **zwei Szenenaktionen** (Whirlpool auslesen, Whirlpool auf eine Temperatur heizen).
 - **Schonend für das Konto**: Die Sitzung wird gespeichert und wiederverwendet, eine abgelehnte Anmeldung wartet 15 Minuten (dann länger) bis zum nächsten Versuch, damit ein falsches Passwort das Konto nie sperren lässt.
 - Englisch, Französisch, Deutsch und Spanisch.
@@ -113,7 +113,7 @@ Externe IDs: `ext:<Selektor>:spa:v1-<Gizwits-Geräte-ID>` oder `…:spa:v2-<MAC-
 
 Beide Widgets haben die Einstellung **Whirlpool** (der erste, wenn leer).
 
-- **Whirlpool** (`spa`): Wasser- und Solltemperatur, die Heizung (aus, heizt, „bereit um 20:30“, Temperatur erreicht), die Filterpumpe (oder der Strom, wenn aus), Massage, Düsen, Fehler; Tasten **Heizen** / **Heizung aus**, **Massage** / **Massage aus**, **-1 °C**, **+1 °C**. Filterpumpen: Timer, Strom, Kartusche, Fehler.
+- **Whirlpool** (`spa`): Wasser- und Solltemperatur, die Heizung (aus, heizt, „bereit um 20:30“, Temperatur erreicht), die Filterpumpe (oder der Strom, wenn aus), Massage, Düsen, Fehler; Tasten **Heizen** / **Heizung aus**, **Massage** / **Massage aus**, **-1 °C**, **+1 °C**; bei HydroJet-Whirlpools **Düsen** / **Düsen aus** und eine Taste **Solltemperatur**, die nach der Temperatur fragt, statt -1 / +1 (ein Widget hat höchstens 4 Tasten). Filterpumpen: Timer, Strom, Kartusche, Fehler.
 - **Whirlpool-Kurve** (`history`, Einstellung `period`: 24 Stunden, 3 oder 7 Tage): Wasser- und Solltemperatur aus dem Verlauf von Gladys (das Gerät muss hinzugefügt sein) und die Heizrate in °C pro Stunde.
 
 ## Szenenauslöser und -aktionen

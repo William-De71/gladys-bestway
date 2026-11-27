@@ -3,7 +3,9 @@
 //
 //   spa       the water now and its target, what the heater does, when the
 //             water is ready, filter pump, bubbles, jets, errors; buttons:
-//             heater on / off, bubbles on / off, target -1 / +1 °C
+//             heater on / off, bubbles on / off, target -1 / +1 °C; on the
+//             spas with jets, jets on / off and one target button with a
+//             form instead of -1 / +1 (4 buttons at most)
 //   history   the curves of the water temperature and the target (a day,
 //             three days or a week, from the Gladys history), and how fast
 //             the spa heats
@@ -13,6 +15,7 @@
 // multi-language: Gladys caches the content per language.
 // -----------------------------------------------------------------------------
 
+import { TARGET_BOUNDS } from './bestway/model.js';
 import { t, truncate } from './i18n.js';
 
 export const WIDGETS = { SPA: 'spa', HISTORY: 'history' };
@@ -23,7 +26,12 @@ export const WIDGET_ACTIONS = {
   BUBBLES_OFF: 'bubbles_off',
   TARGET_DOWN: 'target_down',
   TARGET_UP: 'target_up',
+  JETS_ON: 'jets_on',
+  JETS_OFF: 'jets_off',
+  TARGET_SET: 'target_set',
 };
+// The form field of TARGET_SET.
+export const TARGET_FIELD = 'target';
 export const HISTORY_PERIODS = ['last-day', 'last-three-days', 'last-week'];
 const TTL = { spa: 60, history: 300 };
 
@@ -188,12 +196,12 @@ export function buildSpaWidget(view) {
   }
 
   if (view.reachable) {
-    const button = (label, icon, key, style = 'secondary') => ({
+    const button = (label, icon, key, style = 'secondary', fields = undefined) => ({
       type: 'button',
       label: t(label),
       icon,
       style,
-      action: { key, params: { device: view.device } },
+      action: { key, params: { device: view.device }, ...(fields ? { fields } : {}) },
     });
     components.push(
       state.heaterOn
@@ -207,7 +215,32 @@ export function buildSpaWidget(view) {
           : button('widgetBubblesOn', 'wind', WIDGET_ACTIONS.BUBBLES_ON),
       );
     }
-    if (state.target !== null) {
+    if (caps.jets) {
+      components.push(
+        state.jets
+          ? button('widgetJetsOff', 'droplet', WIDGET_ACTIONS.JETS_OFF)
+          : button('widgetJetsOn', 'droplet', WIDGET_ACTIONS.JETS_ON),
+      );
+    }
+    if (state.target !== null && caps.jets) {
+      // No room left for -1 / +1: one button, the target typed in a form.
+      components.push(
+        button('widgetTargetSet', 'sliders', WIDGET_ACTIONS.TARGET_SET, 'secondary', [
+          {
+            key: TARGET_FIELD,
+            type: 'number',
+            label: t('widgetTargetField'),
+            required: true,
+            min: TARGET_BOUNDS.C[0],
+            max: TARGET_BOUNDS.C[1],
+            default: Math.min(
+              Math.max(Math.round(state.target), TARGET_BOUNDS.C[0]),
+              TARGET_BOUNDS.C[1],
+            ),
+          },
+        ]),
+      );
+    } else if (state.target !== null) {
       components.push(
         button('widgetTargetDown', 'minus', WIDGET_ACTIONS.TARGET_DOWN),
         button('widgetTargetUp', 'plus', WIDGET_ACTIONS.TARGET_UP),

@@ -31,7 +31,14 @@ import { t, text, truncate, truncateAll } from './i18n.js';
 import { SCENE_ACTIONS, SCENE_TRIGGERS } from './scenes.js';
 import { createStatePublisher } from './states.js';
 import { createStorage } from './storage.js';
-import { buildHistoryWidget, buildSpaWidget, clock, WIDGET_ACTIONS, WIDGETS } from './widgets.js';
+import {
+  buildHistoryWidget,
+  buildSpaWidget,
+  clock,
+  TARGET_FIELD,
+  WIDGET_ACTIONS,
+  WIDGETS,
+} from './widgets.js';
 
 export const ACTIONS = { TEST: 'test_connection' };
 
@@ -597,7 +604,7 @@ export function createApp(
     buildHistoryWidget(viewOf(settings), settings?.period),
   );
 
-  gladys.onWidgetAction(WIDGETS.SPA, async (actionKey, params = {}, { settings } = {}) => {
+  gladys.onWidgetAction(WIDGETS.SPA, async (actionKey, params = {}, { settings, values } = {}) => {
     let spa;
     try {
       ({ spa } = spaOf(params?.device ?? settings?.device));
@@ -620,6 +627,9 @@ export function createApp(
       ],
       [WIDGET_ACTIONS.TARGET_DOWN]: ['target', (spa.state?.target ?? 0) - step, 'toastTarget'],
       [WIDGET_ACTIONS.TARGET_UP]: ['target', (spa.state?.target ?? 0) + step, 'toastTarget'],
+      [WIDGET_ACTIONS.TARGET_SET]: ['target', Number(values?.[TARGET_FIELD]), 'toastTarget'],
+      [WIDGET_ACTIONS.JETS_ON]: ['jets', true, 'toastJetsOn'],
+      [WIDGET_ACTIONS.JETS_OFF]: ['jets', false, 'toastJetsOff'],
     };
     const plan = plans[actionKey];
     if (!plan) {

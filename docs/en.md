@@ -56,7 +56,7 @@ A command is shown at once and kept until the cloud reports it (5 to 30 seconds)
 
 ### Widgets
 
-- **Spa**: the water and its target, the heater (off, heating, "ready at 20:30", at temperature), the filter pump, the bubbles, the jets, the errors, and buttons to heat, for the bubbles and to change the target by one degree.
+- **Spa**: the water and its target, the heater (off, heating, "ready at 20:30", at temperature), the filter pump, the bubbles, the jets, the errors, and buttons to heat, for the bubbles and to change the target by one degree. On the HydroJet spas: a button for the jets, and one **Target** button that asks for the temperature instead of -1 / +1.
 - **Spa curve**: the water and target temperatures over 24 hours, 3 or 7 days (the device must be added), and how fast the spa heats.
 
 The "ready at" time appears after 45 minutes of heating: the integration measures the heating speed, then remembers it for the next times.

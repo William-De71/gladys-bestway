@@ -17,7 +17,7 @@ Su spa Wi-Fi Bestway (Lay-Z-Spa, SaluSpa) en Gladys Assistant, con la cuenta de 
 - **Un dispositivo por spa**, con el nombre de la aplicación: temperatura del agua, temperatura de consigna (20 a 40 °C; los spas en Fahrenheit se convierten), calefacción, calentando ahora, encendido, filtración, burbujas (encendidas / apagadas, o apagadas / medio / máximo en los modelos V1 con niveles), chorros HydroJet, bloqueo del panel y errores, según el modelo. Bombas de filtración **Flowclear Smart Touch** (V1): encendido, temporizador de filtración, cartucho que cambiar, errores.
 - **Órdenes que responden al momento**: el nuevo valor se muestra enseguida y se mantiene hasta que la nube lo confirma (las nubes tardan de 5 a 30 segundos), y una lectura 15 segundos después lo comprueba. Encender la calefacción arranca también la filtración, como hace el spa.
 - **Cuándo estará lista el agua**: la velocidad de calentamiento se mide en la curva de calentamiento y se recuerda; el widget y la acción de escena dan la hora en que el agua alcanza su consigna.
-- **Dos widgets de panel**: el spa (agua, consigna, calefacción y hora, filtración, burbujas, chorros, errores, con botones para calentar, para las burbujas y para cambiar la consigna un grado) y la curva del spa (agua y consigna en 1, 3 o 7 días, velocidad de calentamiento).
+- **Dos widgets de panel**: el spa (agua, consigna, calefacción y hora, filtración, burbujas, chorros, errores, con botones para calentar, para las burbujas, para los chorros y para cambiar la consigna) y la curva del spa (agua y consigna en 1, 3 o 7 días, velocidad de calentamiento).
 - **Cuatro activadores de escena** (agua a la consigna, error, spa inaccesible, spa de vuelta) y **dos acciones de escena** (leer el spa, calentar el spa a una temperatura).
 - **Cuidadosa con la cuenta**: la sesión se guarda y se reutiliza, un inicio de sesión rechazado espera 15 minutos (luego más) antes del siguiente intento, así una contraseña errónea nunca hace bloquear la cuenta.
 - Inglés, francés, alemán y español.
@@ -113,7 +113,7 @@ Identificadores externos: `ext:<selector>:spa:v1-<id. de Gizwits>` o `…:spa:v2
 
 Los dos widgets tienen un ajuste **Spa** (el primero si está vacío).
 
-- **Spa** (`spa`): temperaturas del agua y de consigna, la calefacción (apagada, calentando, «listo a las 20:30», temperatura alcanzada), la filtración (o el encendido cuando está apagado), burbujas, chorros, errores; botones **Calentar** / **Dejar de calentar**, **Burbujas** / **Parar burbujas**, **-1 °C**, **+1 °C**. Bombas de filtración: temporizador, encendido, cartucho, errores.
+- **Spa** (`spa`): temperaturas del agua y de consigna, la calefacción (apagada, calentando, «listo a las 20:30», temperatura alcanzada), la filtración (o el encendido cuando está apagado), burbujas, chorros, errores; botones **Calentar** / **Dejar de calentar**, **Burbujas** / **Parar burbujas**, **-1 °C**, **+1 °C**; en los spas HydroJet, **Chorros** / **Parar chorros** y un botón **Consigna** que pide la temperatura en lugar de -1 / +1 (un widget tiene 4 botones como máximo). Bombas de filtración: temporizador, encendido, cartucho, errores.
 - **Curva del spa** (`history`, ajuste `period`: 24 horas, 3 o 7 días): temperaturas del agua y de consigna del historial de Gladys (el dispositivo debe estar añadido) y la velocidad de calentamiento en °C por hora.
 
 ## Activadores y acciones de escena

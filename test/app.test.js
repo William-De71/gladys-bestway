@@ -436,6 +436,22 @@ test('widgets: valid content in every state; buttons send their command', async 
     await fake.widgetAction('spa', 'bubbles_on', buttons[1].action.params);
     assert.deepEqual(cloud.commands.at(-1).attrs, { wave_state: 1 });
 
+    // The HydroJet Pro (V1): jets, and the target typed in a form.
+    const v1 = (await fake.widgetGet('spa', { settings: { device: V1 } })).data.content;
+    const v1Buttons = v1.components.filter((component) => component.type === 'button');
+    assert.deepEqual(
+      v1Buttons.map((button) => button.action.key),
+      ['heater_off', 'bubbles_on', 'jets_on', 'target_set'],
+    );
+    const jets = await fake.widgetAction('spa', 'jets_on', v1Buttons[2].action.params);
+    assert.match(jets.data.message.fr, /Jets en marche/);
+    assert.deepEqual(cloud.commands.at(-1).attrs, { jet: 1 });
+    const typed = await fake.widgetAction('spa', 'target_set', v1Buttons[3].action.params, {
+      values: { target: 36 },
+    });
+    assert.match(typed.data.message.fr, /Consigne réglée à 36 °C/);
+    assert.deepEqual(cloud.commands.at(-1).attrs, { Tset: 36 });
+
     cloud.down = true;
     const failed = await fake.widgetAction('spa', 'heater_on', buttons[0].action.params);
     assert.match(failed.data.message.fr, /^Non effectué/);

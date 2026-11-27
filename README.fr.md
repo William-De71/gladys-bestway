@@ -17,7 +17,7 @@ Votre spa Wi-Fi Bestway (Lay-Z-Spa, SaluSpa) dans Gladys Assistant, avec le comp
 - **Un appareil par spa**, nommé comme dans l'application : température de l'eau, température de consigne (20 à 40 °C ; les spas réglés en Fahrenheit sont convertis), chauffage, chauffe en cours, alimentation, filtration, bulles (marche / arrêt, ou arrêt / moyen / maximum sur les modèles V1 qui ont des niveaux), jets HydroJet, verrouillage du panneau et erreurs, selon le modèle. Pompes de filtration **Flowclear Smart Touch** (V1) : alimentation, minuterie de filtration, cartouche à changer, erreurs.
 - **Des commandes qui répondent tout de suite** : la nouvelle valeur s'affiche aussitôt et reste affichée jusqu'à ce que le cloud la confirme (les clouds mettent 5 à 30 secondes), puis une lecture 15 secondes plus tard la vérifie. Allumer le chauffage démarre aussi la filtration, comme le fait le spa.
 - **L'heure où l'eau sera prête** : la vitesse de chauffe est mesurée sur la courbe de chauffe et mémorisée ; le widget et l'action de scène donnent l'heure où l'eau atteint sa consigne.
-- **Deux widgets de tableau de bord** : le spa (eau, consigne, chauffage et heure de fin, filtration, bulles, jets, erreurs, avec des boutons pour chauffer, pour les bulles et pour changer la consigne d'un degré) et la courbe du spa (eau et consigne sur 1, 3 ou 7 jours, vitesse de chauffe).
+- **Deux widgets de tableau de bord** : le spa (eau, consigne, chauffage et heure de fin, filtration, bulles, jets, erreurs, avec des boutons pour chauffer, pour les bulles, pour les jets et pour changer la consigne) et la courbe du spa (eau et consigne sur 1, 3 ou 7 jours, vitesse de chauffe).
 - **Quatre déclencheurs de scène** (eau à la consigne, erreur, spa injoignable, spa revenu) et **deux actions de scène** (lire le spa, chauffer le spa à une température).
 - **Respectueuse du compte** : la session est gardée et réutilisée, une connexion refusée attend 15 minutes (puis plus) avant le prochain essai, si bien qu'un mauvais mot de passe ne fait jamais bloquer le compte.
 - Anglais, français, allemand et espagnol.
@@ -113,7 +113,7 @@ Identifiants externes : `ext:<sélecteur>:spa:v1-<identifiant Gizwits>` ou `…:
 
 Les deux widgets ont un réglage **Spa** (le premier si vide).
 
-- **Spa** (`spa`) : températures de l'eau et de consigne, le chauffage (arrêt, chauffe, « prêt vers 20 h 30 », température atteinte), la filtration (ou l'alimentation quand elle est coupée), les bulles, les jets, les erreurs ; boutons **Chauffer** / **Arrêter**, **Bulles** / **Couper les bulles**, **-1 °C**, **+1 °C**. Pompes de filtration : minuterie, alimentation, cartouche, erreurs.
+- **Spa** (`spa`) : températures de l'eau et de consigne, le chauffage (arrêt, chauffe, « prêt vers 20 h 30 », température atteinte), la filtration (ou l'alimentation quand elle est coupée), les bulles, les jets, les erreurs ; boutons **Chauffer** / **Arrêter**, **Bulles** / **Couper les bulles**, **-1 °C**, **+1 °C** ; sur les spas HydroJet, **Jets** / **Couper les jets** et un bouton **Consigne** qui demande la température à la place de -1 / +1 (un widget contient 4 boutons au plus). Pompes de filtration : minuterie, alimentation, cartouche, erreurs.
 - **Courbe du spa** (`history`, réglage `period` : 24 heures, 3 ou 7 jours) : températures de l'eau et de consigne tirées de l'historique de Gladys (l'appareil doit être ajouté), et la vitesse de chauffe en °C par heure.
 
 ## Déclencheurs et actions de scène

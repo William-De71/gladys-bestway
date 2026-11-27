@@ -17,7 +17,7 @@ Your Bestway Wi-Fi spa (Lay-Z-Spa, SaluSpa) in Gladys Assistant, with the accoun
 - **One device per spa**, named as in the app: water temperature, target temperature (20 to 40 °C; spas set to Fahrenheit are converted), heater, heating now, power, filter pump, bubbles (on / off, or off / medium / maximum on the V1 models that have levels), HydroJet jets, panel lock and errors, depending on the model. **Flowclear Smart Touch** pool filter pumps (V1): power, filter timer, cartridge to change, errors.
 - **Commands that feel immediate**: the new value is shown at once and kept until the cloud reports it (the clouds take 5 to 30 seconds), then checked by a reading 15 seconds later. Heating also starts the filter pump, as the spa does.
 - **When the water will be ready**: the heating speed is measured on the heating curve and remembered; the widget and the scene action give the time the water reaches its target.
-- **Two dashboard widgets**: the spa (water, target, heater and ready time, filter pump, bubbles, jets, errors, with buttons to heat, for the bubbles and to change the target by one degree) and the spa curve (water and target over 1, 3 or 7 days, heating speed).
+- **Two dashboard widgets**: the spa (water, target, heater and ready time, filter pump, bubbles, jets, errors, with buttons to heat, for the bubbles, for the jets and to change the target) and the spa curve (water and target over 1, 3 or 7 days, heating speed).
 - **Four scene triggers** (water at target, error, spa unreachable, spa back) and **two scene actions** (read the spa, heat the spa to a temperature).
 - **Kind to the account**: the session is kept and reused, a refused login waits 15 minutes (then longer) before the next try, so a wrong password never gets the account locked.
 - English, French, German and Spanish.
@@ -113,7 +113,7 @@ External ids: `ext:<selector>:spa:v1-<Gizwits device id>` or `…:spa:v2-<MAC ad
 
 Both widgets have a setting **Spa** (the first one when empty).
 
-- **Spa** (`spa`): water and target temperatures, the heater (off, heating, "ready at 20:30", at temperature), filter pump (or power when off), bubbles, jets, errors; buttons **Heat** / **Stop heating**, **Bubbles** / **Stop bubbles**, **-1 °C**, **+1 °C**. Pool filter pumps: timer, power, cartridge, errors.
+- **Spa** (`spa`): water and target temperatures, the heater (off, heating, "ready at 20:30", at temperature), filter pump (or power when off), bubbles, jets, errors; buttons **Heat** / **Stop heating**, **Bubbles** / **Stop bubbles**, **-1 °C**, **+1 °C**; on the HydroJet spas, **Jets** / **Stop jets** and a **Target** button that asks for the temperature instead of -1 / +1 (a widget holds 4 buttons). Pool filter pumps: timer, power, cartridge, errors.
 - **Spa curve** (`history`, setting `period`: 24 hours, 3 or 7 days): water and target temperatures from the history of Gladys (the device must be added), and the heating speed in °C per hour.
 
 ## Scene triggers and actions

@@ -56,7 +56,7 @@ Una orden se muestra al momento y se mantiene hasta que la nube la confirma (de 
 
 ### Widgets
 
-- **Spa**: el agua y su consigna, la calefacción (apagada, calentando, «listo a las 20:30», temperatura alcanzada), la filtración, las burbujas, los chorros, los errores, y botones para calentar, para las burbujas y para cambiar la consigna un grado.
+- **Spa**: el agua y su consigna, la calefacción (apagada, calentando, «listo a las 20:30», temperatura alcanzada), la filtración, las burbujas, los chorros, los errores, y botones para calentar, para las burbujas y para cambiar la consigna un grado. En los spas HydroJet: un botón para los chorros y un solo botón **Consigna** que pide la temperatura en lugar de -1 / +1.
 - **Curva del spa**: las temperaturas del agua y de consigna en 24 horas, 3 o 7 días (el dispositivo debe estar añadido), y la velocidad de calentamiento del spa.
 
 La hora «listo a las» aparece tras 45 minutos de calentamiento: la integración mide la velocidad de calentamiento y la recuerda para las siguientes veces.

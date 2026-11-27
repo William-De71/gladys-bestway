@@ -148,11 +148,15 @@ test('widget texts fit their slots in every language', () => {
   for (const key of Object.keys(MESSAGES_FOR_TESTS)) {
     if (/^widget(Water|Target|Timer|Rate)$/.test(key)) {
       bounds[key] = 24;
-    } else if (/^widget(HeaterOn|HeaterOff|BubblesOn|BubblesOff|TargetDown|TargetUp)$/.test(key)) {
+    } else if (
+      /^widget(HeaterOn|HeaterOff|BubblesOn|BubblesOff|TargetDown|TargetUp|JetsOn|JetsOff|TargetSet)$/.test(
+        key,
+      )
+    ) {
       bounds[key] = 24;
     } else if (
       /^(heater_|bubbles_|cartridge_)/.test(key) ||
-      /^widget(Spa|Offline|Heater|ReadyAt|Power|Filter|Bubbles|Jets|Cartridge|Errors|On|Off|Temperatures)$/.test(
+      /^widget(Spa|Offline|Heater|ReadyAt|Power|Filter|Bubbles|Jets|Cartridge|Errors|On|Off|Temperatures|TargetField)$/.test(
         key,
       )
     ) {

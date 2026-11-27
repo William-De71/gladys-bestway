@@ -25,6 +25,13 @@ test('families from the V1 product names and the V2 product keys', () => {
   assert.equal(familyOf('v1', { product: 'Hydrojet_Pro' }), FAMILIES.HYDROJET_PRO);
   assert.equal(familyOf('v1', { product: '泳池过滤器' }), FAMILIES.POOL_FILTER);
   assert.equal(familyOf('v1', { product: 'Something new' }), null);
+  // The names vary in case and separators; an unknown HydroJet keeps its jets.
+  assert.equal(familyOf('v1', { product: 'HydroJet Pro' }), FAMILIES.HYDROJET_PRO);
+  assert.equal(familyOf('v1', { product: 'hydrojet-pro' }), FAMILIES.HYDROJET_PRO);
+  assert.equal(familyOf('v1', { product: 'AIRJET_V01' }), FAMILIES.AIRJET_V01);
+  assert.equal(familyOf('v1', { product: 'Hydrojet_Pro_2021' }), FAMILIES.HYDROJET_PRO);
+  assert.equal(familyOf('v1', { product: 'Hydrojet_V02' }), FAMILIES.HYDROJET);
+  assert.equal(familyOf('v1', { product: 'Airjet_V09' }), null);
   assert.equal(familyOf('v2', { productKey: 'F12D9Q', name: '' }), FAMILIES.V2_HYDROJET);
   assert.equal(familyOf('v2', { productKey: 'FTEW0E', name: '' }), FAMILIES.V2_AIRJET);
   assert.equal(
